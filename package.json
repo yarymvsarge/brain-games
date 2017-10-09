@@ -1,7 +1,7 @@
 {
   "name": "yarymov-project1",
-  "version": "0.0.1",
-  "description": "First create",
+  "version": "0.0.2",
+  "description": "Added answer",
   "main": "dist/bin/brain-games.js",
   "scripts": {
     "babel-node": "babel-node",
