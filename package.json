@@ -1,7 +1,10 @@
 {
   "name": "yarymov-project1",
   "version": "0.0.16",
-  "main": "",
+  "main": "dist/index.js",
+  "bin": {
+    "brain-games": "dist/bin/brain-games.js"
+  },
   "description": "Brain games project from Hexlet",
   "scripts": {
     "babel-node": "babel-node",
@@ -32,8 +35,5 @@
   },
   "dependencies": {
     "readline-sync": "*"
-  },
-  "bin": {
-    "brain-games": "dist/bin/brain-games.js"
   }
 }
