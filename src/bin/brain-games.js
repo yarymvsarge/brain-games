@@ -1,4 +1,4 @@
 #!/usr/local/bin/node
-import start from '..';
+import { start } from '..';
 
 start();
