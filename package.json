@@ -1,8 +1,8 @@
 {
   "name": "yarymov-project1",
   "version": "0.0.2",
-  "description": "Added answer",
-  "main": "dist/bin/brain-games.js",
+  "main": "",
+  "description": "Brain games project from Hexlet",
   "scripts": {
     "babel-node": "babel-node",
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
@@ -31,7 +31,7 @@
     "eslint-plugin-import": "*"
   },
   "dependencies": {
-    "readline-sync": "^1.4.7"
+    "readline-sync": "*"
   },
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
