@@ -5,4 +5,4 @@ start:
 publish:
 	npm run publish
 lint:
-	npm run eslint src
+	npm run eslint
