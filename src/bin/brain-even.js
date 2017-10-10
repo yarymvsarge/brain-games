@@ -1,4 +1,4 @@
-#!/usr/local/env node
+#!/usr/bin/env node
 import { evenGame } from '..';
 
 evenGame();
