@@ -1,10 +1,11 @@
 {
   "name": "yarymov-project1",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "main": "",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
-    "brain-even": "dist/bin/brain-even.js"
+    "brain-even": "dist/bin/brain-even.js",
+    "brain-calc": "dist/bin/brain-calc.js"
   },
   "description": "Brain games project from Hexlet",
   "scripts": {
@@ -35,6 +36,7 @@
     "eslint-plugin-import": "*"
   },
   "dependencies": {
-    "readline-sync": "*"
+    "readline-sync": "*",
+    "hexlet-pairs": "*"
   }
 }
