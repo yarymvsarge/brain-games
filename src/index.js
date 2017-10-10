@@ -26,8 +26,8 @@ const evenGame = () => {
       console.log('Correct!');
       iter(attemptsToWin - 1);
     } else {
-      const otherAns = answer === 'yes' ? 'no' : 'yes';
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${otherAns}'`);
+      const correctAns = curNum % 2 === 0 ? 'yes' : 'no';
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAns}'`);
       console.log(`Let's try again, ${name}!`);
     }
   };
