@@ -1,48 +1,42 @@
-import { car, cdr, cons } from 'hexlet-pairs';
-import { play } from '..';
+import { cons, car, cdr } from 'hexlet-pairs';
+import { start, getPlayerName, play, generateRandom } from '..';
 
-const generateRandom = number => Math.floor(Math.random() * number);
+const maxNumberLeft = 100;
+const maxNumberRight = 20;
+const operations = ['+', '-', '*'];
 
-const generateTask = (currentStep) => {
-  const maxNumberLeft = 100;
-  const maxNumberRight = 20;
-  const numbers = cons(generateRandom(maxNumberLeft), generateRandom(maxNumberRight));
-  let operation = '';
-  switch (currentStep) {
-    case 0:
-      operation = '+';
-      break;
-    case 1:
-      operation = '-';
-      break;
-    case 2:
-      operation = '*';
-      break;
-    default:
-      break;
-  }
-  const expression = cons(operation, numbers);
-  return expression;
-};
-
-const generateAnswer = (expression) => {
+const getAnswer = (expression) => {
   const numbers = cdr(expression);
   const operator = car(expression);
   const leftNumber = car(numbers);
   const rightNumber = cdr(numbers);
+  const stringExpression = `${leftNumber} ${operator} ${rightNumber}`;
   switch (operator) {
     case '+':
-      return leftNumber + rightNumber;
+      return cons(stringExpression, leftNumber + rightNumber);
     case '-':
-      return leftNumber - rightNumber;
+      return cons(stringExpression, leftNumber - rightNumber);
     case '*':
-      return leftNumber * rightNumber;
+      return cons(stringExpression, leftNumber * rightNumber);
     default:
       break;
   }
   return 0;
 };
 
-const playCalc = username => play(username, generateTask, generateAnswer);
+const generateTask = () => {
+  const numbers = cons(generateRandom(maxNumberLeft), generateRandom(maxNumberRight));
+  const operation = operations[generateRandom(operations.length)];
+  const expression = cons(operation, numbers);
+  const answerWithQuestion = getAnswer(expression);
+  const question = car(answerWithQuestion);
+  const answer = cdr(answerWithQuestion);
+  return cons(question, answer);
+};
 
-export { generateTask, generateAnswer, playCalc };
+const startMessage = 'What is the result of the expression?';
+start(startMessage);
+const playerName = getPlayerName();
+const playCalc = () => play(playerName, generateTask);
+
+export default playCalc;

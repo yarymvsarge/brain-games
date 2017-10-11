@@ -1,13 +1,19 @@
-import { play } from '..';
+import { cons } from 'hexlet-pairs';
+import { start, getPlayerName, play, generateRandom } from '..';
+
+const getAnswer = number => (number % 2 === 0 ? 'yes' : 'no');
+
+const maxNumber = 1000;
 
 const generateTask = () => {
-  const maxNumber = 1000;
-  const randNumber = Math.floor(Math.random() * maxNumber);
-  return randNumber;
+  const question = generateRandom(maxNumber);
+  const answer = getAnswer(question);
+  return cons(question, answer);
 };
 
-const generateAnswer = number => (number % 2 === 0 ? 'yes' : 'no');
+const startMessage = 'Answer "yes" if number even otherwise answer "no".';
+start(startMessage);
+const playerName = getPlayerName();
+const playEven = () => play(playerName, generateTask);
 
-const playEven = username => play(username, generateTask, generateAnswer);
-
-export { generateTask, generateAnswer, playEven };
+export default playEven;
