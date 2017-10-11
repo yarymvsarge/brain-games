@@ -1,18 +1,18 @@
 import { cons } from 'hexlet-pairs';
-import { start, getPlayerName, play, generateRandom } from '..';
-
-const getAnswer = number => (number % 2 === 0 ? 'yes' : 'no');
+import generateRandom from '../utils';
+import play from '..';
 
 const maxNumber = 1000;
 
+const isEven = number => number % 2 === 0;
+const getAnswer = number => (isEven(number) ? 'yes' : 'no');
+
 const generateTask = () => {
   const question = generateRandom(maxNumber);
-  const answer = getAnswer(question);
+  const answer = String(getAnswer(question));
   return cons(question, answer);
 };
 
-const startMessage = 'Answer "yes" if number even otherwise answer "no".';
-start(startMessage);
-const playerName = getPlayerName();
+const gameDescription = 'Answer "yes" if number even otherwise answer "no".';
 
-export default () => play(playerName, generateTask);
+export default () => play(gameDescription, generateTask);

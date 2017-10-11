@@ -1,31 +1,22 @@
 import readlineSync from 'readline-sync';
 import { car, cdr } from 'hexlet-pairs';
 
-const generateRandom = number => Math.floor(Math.random() * number);
-
-const start = (startMessage) => {
-  console.log('Welcome to the Brain Games!');
-  console.log(startMessage);
-};
-
-const getPlayerName = () => {
-  const playerName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${playerName}!`);
-  return playerName;
-};
-
 const attemptsCount = 3; // after 3 right questions -> win the game
 
-const play = (playerName, generatePair) => {
+const play = (rulesMessage, generateAnswerQuestion) => {
+  console.log('Welcome to the Brain Games!');
+  console.log(rulesMessage);
+  const playerName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${playerName}!`);
   const iter = (rightAnswersCount) => {
     if (rightAnswersCount === attemptsCount) {
       console.log(`Congratulations, ${playerName}!`);
       return;
     }
-    const questionAnswerPair = generatePair(); // get pair(question <String>, answer <Number>);
-    const question = car(questionAnswerPair);
+    const answerQuestion = generateAnswerQuestion();// get pair(question <String>, answer <Number>);
+    const question = car(answerQuestion);
     console.log(`Question: ${question}`);
-    const correctAnswer = String(cdr(questionAnswerPair));
+    const correctAnswer = cdr(answerQuestion);
     const userAnswer = readlineSync.question('Your answer: ');
     if (userAnswer === correctAnswer) {
       console.log('Correct!');
@@ -38,4 +29,4 @@ const play = (playerName, generatePair) => {
   return iter(0);
 };
 
-export { start, getPlayerName, play, generateRandom };
+export default play;

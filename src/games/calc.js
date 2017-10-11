@@ -1,5 +1,6 @@
 import { cons } from 'hexlet-pairs';
-import { start, getPlayerName, play, generateRandom } from '..';
+import { generateRandom } from '../utils';
+import play from '..';
 
 const maxLeftNumber = 100;
 const maxRightNumber = 20;
@@ -14,9 +15,8 @@ const getAnswer = (leftNumber, rightNumber, operation) => {
     case '*':
       return leftNumber * rightNumber;
     default:
-      break;
+      return undefined;
   }
-  return 0;
 };
 
 const generateTask = () => {
@@ -25,13 +25,11 @@ const generateTask = () => {
   const operation = operations[generateRandom(operations.length)];
 
   const question = `${leftNumber} ${operation} ${rightNumber}`;
-  const answer = getAnswer(leftNumber, rightNumber, operation);
+  const answer = String(getAnswer(leftNumber, rightNumber, operation));
 
   return cons(question, answer);
 };
 
-const startMessage = 'What is the result of the expression?';
-start(startMessage);
-const playerName = getPlayerName();
+const gameDescription = 'What is the result of the expression?';
 
-export default () => play(playerName, generateTask);
+export default () => play(gameDescription, generateTask);
