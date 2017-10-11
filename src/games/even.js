@@ -14,6 +14,5 @@ const generateTask = () => {
 const startMessage = 'Answer "yes" if number even otherwise answer "no".';
 start(startMessage);
 const playerName = getPlayerName();
-const playEven = () => play(playerName, generateTask);
 
-export default playEven;
+export default () => play(playerName, generateTask);
