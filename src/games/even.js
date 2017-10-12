@@ -13,6 +13,6 @@ const generateTask = () => {
   return cons(question, answer);
 };
 
-const gameDescription = 'Answer "yes" if number even otherwise answer "no".';
+const description = 'Answer "yes" if number even otherwise answer "no".';
 
-export default () => play(gameDescription, generateTask);
+export default () => play(description, generateTask);

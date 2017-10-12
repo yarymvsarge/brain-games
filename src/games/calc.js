@@ -30,6 +30,6 @@ const generateTask = () => {
   return cons(question, answer);
 };
 
-const gameDescription = 'What is the result of the expression?';
+const description = 'What is the result of the expression?';
 
-export default () => play(gameDescription, generateTask);
+export default () => play(description, generateTask);

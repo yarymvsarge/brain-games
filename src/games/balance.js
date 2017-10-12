@@ -30,6 +30,6 @@ const generateTask = () => {
   return cons(number, answer);
 };
 
-const gameDescription = 'Balance the given number.';
+const description = 'Balance the given number.';
 
-export default () => play(gameDescription, generateTask);
+export default () => play(description, generateTask);

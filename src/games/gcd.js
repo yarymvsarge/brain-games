@@ -21,6 +21,6 @@ const generateTask = () => {
   return cons(question, answer);
 };
 
-const gameDescription = 'Find the greatest common divisor of given numbers.';
+const description = 'Find the greatest common divisor of given numbers.';
 
-export default () => play(gameDescription, generateTask);
+export default () => play(description, generateTask);
