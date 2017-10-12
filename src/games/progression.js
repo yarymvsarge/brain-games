@@ -8,7 +8,7 @@ const maxProgressionStep = 10;
 
 const generateProgression = () => {
   const startNumber = generateRandom(maxStartNumber);
-  const progressionStep = generateRandom(maxProgressionStep);
+  const progressionStep = generateRandom(maxProgressionStep) + 1; // if it will be zero
   const iter = (currentProgression) => {
     if (currentProgression.length === progressionLength) {
       return currentProgression;
