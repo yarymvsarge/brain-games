@@ -1,24 +1,22 @@
 import { cons } from 'hexlet-pairs';
-import { isEven, generateRandom } from '../utils';
+import generateRandom from '../utils';
 import play from '..';
 
 const maxNumber = 100;
 
+const hasRemainder = (dividend, divisor) => (dividend % divisor !== 0);
+
 const isPrime = (number) => {
-  if (number === 2 || number === 1) {
-    return true;
-  } else if (isEven(number)) {
+  if (number === 1) {
     return false;
   }
-  const upperBound = Math.floor(Math.sqrt(number));
+  const greatestDivisor = Math.floor(Math.sqrt(number));
   const startNumber = 2;
-  const iter = (currentNumber) => {
-    if (currentNumber > upperBound) {
+  const iter = (currentDivisor) => {
+    if (currentDivisor > greatestDivisor) {
       return true;
-    } else if (number % currentNumber === 0) {
-      return false;
     }
-    return iter(currentNumber + 1);
+    return (hasRemainder(number, currentDivisor)) ? iter(currentDivisor + 1) : false;
   };
   return iter(startNumber);
 };

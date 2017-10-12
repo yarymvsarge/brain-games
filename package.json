@@ -1,6 +1,6 @@
 {
   "name": "yarymov-project1",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
