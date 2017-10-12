@@ -1,5 +1,5 @@
 import { cons } from 'hexlet-pairs';
-import generateRandom from '../utils';
+import { isEven, generateRandom } from '../utils';
 import play from '..';
 
 const maxNumber = 100;
@@ -7,7 +7,7 @@ const maxNumber = 100;
 const isPrime = (number) => {
   if (number === 2 || number === 1) {
     return true;
-  } else if (number % 2 === 0) {
+  } else if (isEven(number)) {
     return false;
   }
   const upperBound = Math.floor(Math.sqrt(number));

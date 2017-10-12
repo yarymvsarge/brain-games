@@ -1,5 +1,5 @@
 import { cons } from 'hexlet-pairs';
-import generateRandom from '../utils';
+import { generateRandom } from '../utils';
 import play from '..';
 
 const progressionLength = 10;
