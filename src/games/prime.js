@@ -2,31 +2,31 @@ import { cons } from 'hexlet-pairs';
 import generateRandom from '../utils';
 import play from '..';
 
-const maxNumber = 100;
-
-const hasRemainder = (dividend, divisor) => (dividend % divisor !== 0);
+const maxNumber = 1000;
 
 const isPrime = (number) => {
   if (number === 1) {
     return false;
   }
-  const greatestDivisor = Math.floor(Math.sqrt(number));
-  const startNumber = 2;
+  const greatestPossibleDivisor = Math.floor(Math.sqrt(number));
+  const startDivisor = 2;
   const iter = (currentDivisor) => {
-    if (currentDivisor > greatestDivisor) {
+    if (currentDivisor > greatestPossibleDivisor) {
       return true;
     }
-    return (hasRemainder(number, currentDivisor)) ? iter(currentDivisor + 1) : false;
+    if (number % currentDivisor === 0) {
+      return false;
+    }
+    return iter(currentDivisor + 1);
   };
-  return iter(startNumber);
+  return iter(startDivisor);
 };
 
 const getAnswer = number => (isPrime(number) ? 'yes' : 'no');
 
 const generateAnswerAndQuestion = () => {
-  const number = generateRandom(maxNumber);
-  const answer = getAnswer(number);
-  const question = String(number);
+  const question = generateRandom(maxNumber);
+  const answer = getAnswer(question);
   return cons(question, answer);
 };
 

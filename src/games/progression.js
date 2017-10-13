@@ -8,7 +8,7 @@ const maxProgressionStep = 10;
 
 const generateProgression = (questionIndex) => {
   const startElement = generateRandom(maxStartElement);
-  const progressionStep = generateRandom(maxProgressionStep) + 1; // if random return zero
+  const progressionStep = generateRandom(maxProgressionStep) + 1; // if random returns zero
   const iter = (currentProgression, answer) => {
     const currentLength = currentProgression.length;
     const newIndex = currentLength;
