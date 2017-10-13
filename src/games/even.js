@@ -6,9 +6,9 @@ const maxNumber = 1000;
 
 const isEven = number => (number % 2 === 0);
 
-const getAnswer = number => (isEven(number) ? 'yes' : 'no');
+const getAnswer = question => (isEven(question) ? 'yes' : 'no');
 
-const generateTask = () => {
+const generateAnswerAndQuestion = () => {
   const question = generateRandom(maxNumber);
   const answer = String(getAnswer(question));
   return cons(question, answer);
@@ -16,4 +16,4 @@ const generateTask = () => {
 
 const description = 'Answer "yes" if number even otherwise answer "no".';
 
-export default () => play(description, generateTask);
+export default () => play(description, generateAnswerAndQuestion);

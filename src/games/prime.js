@@ -23,7 +23,7 @@ const isPrime = (number) => {
 
 const getAnswer = number => (isPrime(number) ? 'yes' : 'no');
 
-const generateTask = () => {
+const generateAnswerAndQuestion = () => {
   const number = generateRandom(maxNumber);
   const answer = getAnswer(number);
   const question = String(number);
@@ -32,4 +32,4 @@ const generateTask = () => {
 
 const description = 'Answer "yes" if number prime otherwise answer "no".';
 
-export default () => play(description, generateTask);
+export default () => play(description, generateAnswerAndQuestion);

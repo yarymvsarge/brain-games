@@ -19,7 +19,7 @@ const getAnswer = (leftNumber, rightNumber, operation) => {
   }
 };
 
-const generateTask = () => {
+const generateAnswerAndQuestion = () => {
   const leftNumber = generateRandom(maxLeftNumber);
   const rightNumber = generateRandom(maxRightNumber);
   const operation = operations[generateRandom(operations.length)];
@@ -32,4 +32,4 @@ const generateTask = () => {
 
 const description = 'What is the result of the expression?';
 
-export default () => play(description, generateTask);
+export default () => play(description, generateAnswerAndQuestion);

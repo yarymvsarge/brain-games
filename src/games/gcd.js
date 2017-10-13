@@ -8,19 +8,19 @@ const gcd = (num1, num2) => {
   const bigger = Math.max(num1, num2);
   const smaller = Math.min(num1, num2);
   const remainder = bigger % smaller;
-  return remainder === 0 ? smaller : gcd(smaller, remainder);
+  return (remainder === 0) ? smaller : gcd(smaller, remainder);
 };
 
 const getAnswer = (num1, num2) => gcd(num1, num2);
 
-const generateTask = () => {
+const generateAnswerAndQuestion = () => {
   const number1 = generateRandom(maxNumber);
   const number2 = generateRandom(maxNumber);
-  const answer = String(getAnswer(number1, number2));
   const question = `${number1} ${number2}`;
+  const answer = String(getAnswer(number1, number2));
   return cons(question, answer);
 };
 
 const description = 'Find the greatest common divisor of given numbers.';
 
-export default () => play(description, generateTask);
+export default () => play(description, generateAnswerAndQuestion);

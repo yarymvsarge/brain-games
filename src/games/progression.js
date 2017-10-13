@@ -23,7 +23,7 @@ const generateProgression = () => {
   return progression;
 };
 
-const generateTask = () => {
+const generateAnswerAndQuestion = () => {
   const progression = generateProgression();
   const questionIndex = generateRandom(progressionLength - 1);
   const answer = String(progression[questionIndex]);
@@ -34,4 +34,4 @@ const generateTask = () => {
 
 const description = 'What number is missing in this progression?';
 
-export default () => play(description, generateTask);
+export default () => play(description, generateAnswerAndQuestion);

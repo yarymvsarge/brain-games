@@ -3,9 +3,9 @@ import { car, cdr } from 'hexlet-pairs';
 
 const attemptsCount = 3; // after 3 right questions -> win the game
 
-const play = (rulesMessage, generateAnswerAndQuestion) => {
+const play = (description, generateAnswerAndQuestion) => {
   console.log('Welcome to the Brain Games!');
-  console.log(rulesMessage);
+  console.log(description);
   const playerName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${playerName}!`);
   const iter = (rightAnswersCount) => {
