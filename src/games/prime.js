@@ -5,7 +5,7 @@ import play from '..';
 const maxNumber = 1000;
 
 const isPrime = (number) => {
-  if (number === 1) {
+  if (number <= 1) {
     return false;
   }
   const greatestPossibleDivisor = Math.floor(Math.sqrt(number));
@@ -24,7 +24,7 @@ const isPrime = (number) => {
 
 const getAnswer = number => (isPrime(number) ? 'yes' : 'no');
 
-const generateAnswerAndQuestion = () => {
+const generateQuestionAndAnswer = () => {
   const question = generateRandom(maxNumber);
   const answer = getAnswer(question);
   return cons(question, answer);
@@ -32,4 +32,4 @@ const generateAnswerAndQuestion = () => {
 
 const description = 'Answer "yes" if number prime otherwise answer "no".';
 
-export default () => play(description, generateAnswerAndQuestion);
+export default () => play(description, generateQuestionAndAnswer);

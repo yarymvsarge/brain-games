@@ -4,29 +4,30 @@ import play from '..';
 
 const maxNumber = 1000;
 
-const getAnswer = (questionAsArray) => {
-  const lastIndex = questionAsArray.length - 1;
-  const answer = questionAsArray.slice().sort();
-  while (Number(answer[lastIndex]) - Number(answer[0]) > 1) {
-    const minimalNumber = Number(answer[0]);
-    const maximumNumber = Number(answer[lastIndex]);
+const balance = (number) => {
+  const numberAsArray = String(number).split('').sort();
+  const lastIndex = numberAsArray.length - 1;
+  while (Number(numberAsArray[lastIndex]) - Number(numberAsArray[0]) > 1) {
+    const minimalNumber = Number(numberAsArray[0]);
+    const maximumNumber = Number(numberAsArray[lastIndex]);
     const difference = maximumNumber - minimalNumber;
     const numbersChange = Math.floor(difference / 2);
-    answer[0] = minimalNumber + numbersChange;
-    answer[lastIndex] = maximumNumber - numbersChange;
-    answer.sort();
+    numberAsArray[0] = minimalNumber + numbersChange;
+    numberAsArray[lastIndex] = maximumNumber - numbersChange;
+    numberAsArray.sort();
   }
-  return answer.join('');
+  const balancedNumber = Number(numberAsArray.join(''));
+  return balancedNumber;
 };
 
-const generateAnswerAndQuestion = () => {
+const getAnswer = question => balance(question);
+
+const generateQuestionAndAnswer = () => {
   const question = generateRandom(maxNumber);
-  const questionAsString = String(question);
-  const questionAsArray = questionAsString.split('');
-  const answer = getAnswer(questionAsArray);
+  const answer = String(getAnswer(question));
   return cons(question, answer);
 };
 
 const description = 'Balance the given number.';
 
-export default () => play(description, generateAnswerAndQuestion);
+export default () => play(description, generateQuestionAndAnswer);

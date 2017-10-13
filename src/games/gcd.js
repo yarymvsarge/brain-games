@@ -13,7 +13,7 @@ const gcd = (num1, num2) => {
 
 const getAnswer = (num1, num2) => gcd(num1, num2);
 
-const generateAnswerAndQuestion = () => {
+const generateQuestionAndAnswer = () => {
   const number1 = generateRandom(maxNumber);
   const number2 = generateRandom(maxNumber);
   const question = `${number1} ${number2}`;
@@ -23,4 +23,4 @@ const generateAnswerAndQuestion = () => {
 
 const description = 'Find the greatest common divisor of given numbers.';
 
-export default () => play(description, generateAnswerAndQuestion);
+export default () => play(description, generateQuestionAndAnswer);

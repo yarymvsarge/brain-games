@@ -6,34 +6,31 @@ const progressionLength = 10;
 const maxStartElement = 100;
 const maxProgressionStep = 10;
 
-const generateProgression = (questionIndex) => {
+const generateProgression = () => {
   const startElement = generateRandom(maxStartElement);
   const progressionStep = generateRandom(maxProgressionStep) + 1; // if random returns zero
-  const iter = (currentProgression, answer) => {
+  const iter = (currentProgression) => {
     const currentLength = currentProgression.length;
-    const newIndex = currentLength;
     if (currentLength === progressionLength) {
-      return cons(currentProgression.join(' '), String(answer));
+      return currentProgression;
     }
     const newElement = (currentLength * progressionStep) + startElement;
-    if (questionIndex === newIndex) {
-      const newProgression = currentProgression.concat('..');
-      const rightAnswer = newElement;
-      return iter(newProgression, rightAnswer);
-    }
     const newProgression = currentProgression.concat(newElement);
-    return iter(newProgression, answer);
+    return iter(newProgression);
   };
-  const progressionAndAnswer = iter([], undefined);
-  return progressionAndAnswer;
+  return iter([]);
 };
 
-const generateAnswerAndQuestion = () => {
-  const questionIndex = generateRandom(progressionLength - 1);
-  const progressionAndAnswer = generateProgression(questionIndex);
-  return progressionAndAnswer;
+const generateQuestionAndAnswer = () => {
+  const progression = generateProgression();
+  const answerIndex = generateRandom(progressionLength - 1);
+  const answer = String(progression[answerIndex]);
+  const questionAsArray = progression.slice();
+  questionAsArray[answerIndex] = '..';
+  const question = questionAsArray.join(' ');
+  return cons(question, answer);
 };
 
 const description = 'What number is missing in this progression?';
 
-export default () => play(description, generateAnswerAndQuestion);
+export default () => play(description, generateQuestionAndAnswer);
