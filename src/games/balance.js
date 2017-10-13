@@ -16,7 +16,7 @@ const getAnswer = (questionAsArray) => {
     answer[lastIndex] = maximumNumber - numbersChange;
     answer.sort();
   }
-  return answer;
+  return answer.join('');
 };
 
 const generateAnswerAndQuestion = () => {
